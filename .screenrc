@@ -1,0 +1,22 @@
+defscrollback 10000
+
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+
+startup_message off
+vbell off
+autodetach on
+altscreen on
+
+escape ^Jj
+
+bind v eval "split -v" focus select
+bind s eval split focus
+
+bind x remove
+
+defbce on
+term xterm-256color
+
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
