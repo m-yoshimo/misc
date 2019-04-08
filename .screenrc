@@ -12,7 +12,11 @@ altscreen on
 escape ^Jj
 
 bind v eval "split -v" focus select
-bind s eval split focus
+bind s eval split focus select
+bind + eval 'command -c resize'
+bind - eval 'command -c resize'
+bind -c resize + eval 'resize +1' 'command -c resize'
+bind -c resize - eval 'resize -1' 'command -c resize'
 
 bind x remove
 
