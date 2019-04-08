@@ -20,7 +20,7 @@ hi Type ctermfg=187
 ""hi Ignore ctermfg=blue
 ""hi Error term=bold ctermbg=darkmagenta ctermfg=black
 ""hi Todo term=bold ctermfg=black ctermbg=darkcyan
-hi Pmenu ctermbg=195 ctermfg=235
+hi Pmenu ctermbg=25 ctermfg=253
 ""hi PmenuSel ctermbg=darkcyan ctermfg=black
 ""hi PmenuSbar ctermbg=darkred
 ""hi PmenuThumb cterm=reverse ctermfg=gray
@@ -43,7 +43,8 @@ hi Directory term=bold ctermfg=153
 ""hi StatusLine term=bold,reverse cterm=reverse ctermfg=blue ctermbg=black
 ""hi StatusLineNC term=bold,reverse cterm=reverse ctermfg=blue ctermbg=black
 ""hi VertSplit ctermfg=black ctermbg=darkred term=reverse cterm=reverse
-hi Title ctermfg=250
+hi Title ctermfg=33
+hi NERDTreeExecFile ctermfg=251
 ""hi Visual term=reverse cterm=reverse ctermfg=darkcyan ctermbg=black
 ""hi VisualNOS term=bold,underline ctermfg=darkcyan ctermbg=black
 ""hi WarningMsg term=bold ctermfg=darkmagenta

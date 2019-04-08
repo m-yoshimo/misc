@@ -96,5 +96,5 @@ let Tlist_WinWidth = 30
 "---------------------------------------
 
 " javascript/go だと taglist に何も出ないので設定変更する
-let g:tlist_javascript_settings = 'javascript;C:class;M:method;F:function;P:property'
+let g:tlist_javascript_settings = 'javascript;C:class;M:method;F:function;P:property;O:object;S:styled'
 let g:tlist_go_settings = 'go;g:enum;s:struct;u:union;t:type;v:variable;f:function'
