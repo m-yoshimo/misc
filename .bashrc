@@ -40,6 +40,9 @@ export SCREENDIR=$HOME/.screen
 export PATH=${HOME}/.rbenv/bin:${PATH}
 eval "$(rbenv init -)"
 
+# path for lib on bionic
+export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
+
 # golang
 export GOPATH=${HOME}/dev/go
 export PATH=${GOPATH}/bin:${PATH}
@@ -50,3 +53,5 @@ export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
 # docker for windows
 export DOCKER_HOST='tcp://0.0.0.0:2375'
+
+source ~/.bashrc_private
