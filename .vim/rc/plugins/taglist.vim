@@ -26,7 +26,7 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 
 "タグのプロトタイプを表示するかどうか
 "0(表示しない) または 1(表示する)
-let Tlist_Display_Prototype = 1
+let Tlist_Display_Prototype = 0
 
 "C++のようにスコープを持つタグで、スコープを表示するか
 "0(表示しない) または 1(表示する)
@@ -34,7 +34,7 @@ let Tlist_Display_Tag_Scope = 1
 
 "Foldカラムを表示するか表示しないか。狭い場所に表示させたい時は非表示に
 "0(表示しない) または 1(表示する)
-let Tlist_Enable_Fold_Column = 1
+let Tlist_Enable_Fold_Column = 0
 
 "タグリストだけが表示されているときに自動的にVimを終了するか
 "0(終了しない) または 1(終了する)
@@ -46,7 +46,7 @@ let Tlist_File_Fold_Auto_Close = 1
 
 "TlistToggleコマンド入力時、フォーカスをタグリストに移動するか
 "0(移動しない) または 1(移動する)
-let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_GainFocus_On_ToggleOpen = 0
 
 "自動ハイライト表示
 "0(表示しない) または 1(表示する)
@@ -96,5 +96,5 @@ let Tlist_WinWidth = 30
 "---------------------------------------
 
 " javascript/go だと taglist に何も出ないので設定変更する
-let g:tlist_javascript_settings = 'javascript;C:class;M:method;F:function;P:property;O:object;S:styled'
+let g:tlist_javascript_settings = 'javascript;E:export;C:class;M:method;F:function;G:generater;P:property;O:object;S:styled'
 let g:tlist_go_settings = 'go;g:enum;s:struct;u:union;t:type;v:variable;f:function'
