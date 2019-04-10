@@ -24,6 +24,10 @@ if dein#load_state('/home/m-yoshimo/.vim/dein')
   call dein#add('Shougo/neosnippet-snippets')
   "--- フォルダツリー
   call dein#add('scrooloose/nerdtree')
+  "--- 検索
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('nixprime/cpsm')
+  call dein#add('FelikZ/ctrlp-py-matcher')
   "--- 関数一覧
   call dein#add('majutsushi/tagbar')
   "--- 表示
