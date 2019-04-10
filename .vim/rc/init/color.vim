@@ -36,7 +36,7 @@ hi CursorLineNr term=underline cterm=NONE ctermfg=white ctermbg=27
 hi Directory term=bold ctermfg=153
 ""hi ErrorMsg ctermbg=darkmagenta ctermfg=black
 ""hi IncSearch term=reverse cterm=reverse ctermfg=brown ctermbg=black
-""hi Search term=reverse ctermfg=black ctermbg=brown
+hi Search term=reverse ctermfg=234 ctermbg=229
 ""hi MoreMsg term=bold ctermfg=darkgreen
 ""hi ModeMsg term=bold ctermfg=darkmagenta
 ""hi Question term=bold ctermfg=blue
