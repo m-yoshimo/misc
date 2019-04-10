@@ -10,3 +10,4 @@ let g:deoplete#max_list = 1000
 inoremap <expr><tab> pumvisible() ? "\<C-n>" :
     \ neosnippet#expandable_or_jumpable() ?
     \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+set completeopt+=noinsert
