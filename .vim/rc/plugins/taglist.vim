@@ -1,5 +1,4 @@
 "--- taglist ----------------
-
 "タグに色をつけるか
 "0(付けない) または 1(付ける)
 let Tlist_Auto_Highlight_Tag = 1

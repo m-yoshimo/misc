@@ -25,7 +25,7 @@ if dein#load_state('/home/m-yoshimo/.vim/dein')
   "--- フォルダツリー
   call dein#add('scrooloose/nerdtree')
   "--- 関数一覧
-  call dein#add('vim-scripts/taglist.vim')
+  call dein#add('majutsushi/tagbar')
   "--- 表示
   call dein#add('itchyny/lightline.vim')
   call dein#add('bronson/vim-trailing-whitespace')
@@ -38,6 +38,8 @@ if dein#load_state('/home/m-yoshimo/.vim/dein')
   call dein#add('tpope/vim-surround')
   "--- カラースキーマ
   call dein#add('jacoborus/tender.vim')
+  "--- javascript
+  call dein#add('ternjs/tern_for_vim')
 
   " Required:
   call dein#end()
