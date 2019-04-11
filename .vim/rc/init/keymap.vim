@@ -32,9 +32,13 @@ nnoremap s- <C-w>-
 "--- その他 ---------------
 ""---- expandtab 設定の on/off (default on)
 nnoremap <C-e> :set expandtab!<CR>
+""---- ペーストモード切替
+nnoremap <C-o> :set paste!<CR>
+""---- crash 対応
+map <C-s> <Nop>
 
 "--- プラグインの keymapping
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-nnoremap <silent><C-m> :TagbarToggle<CR>
+nnoremap <silent><C-l> :TagbarToggle<CR>
 " Tagbar 非表示時に Enter 押すと Tagbar 表示に hook されるので無効にする
 nnoremap <ENTER> j

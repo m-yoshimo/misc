@@ -37,6 +37,8 @@ hi Directory term=bold ctermfg=153
 ""hi ErrorMsg ctermbg=darkmagenta ctermfg=black
 ""hi IncSearch term=reverse cterm=reverse ctermfg=brown ctermbg=black
 hi Search term=reverse ctermfg=234 ctermbg=229
+hi SpellBad term=reverse ctermfg=9 ctermbg=231
+hi SpellCap term=reverse ctermfg=19 ctermbg=231
 ""hi MoreMsg term=bold ctermfg=darkgreen
 ""hi ModeMsg term=bold ctermfg=darkmagenta
 ""hi Question term=bold ctermfg=blue
