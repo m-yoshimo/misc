@@ -157,6 +157,9 @@ export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
 export GOPATH=${HOME}/dev/go
 export PATH=${GOPATH}/bin:${PATH}
 
+# node
+export PATH=${HOME}/node_modules/.bin:${PATH}
+
 # gcloud
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 #export GOOGLE_PROJECT_ID="$(gcloud config get-value project -q)"  # 読み込み長いのでコメントアウト
