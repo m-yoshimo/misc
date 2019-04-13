@@ -17,6 +17,7 @@ inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 " LSP settings here
 let g:LanguageClient_serverCommands = {
   \ 'ruby': ['solargraph', 'stdio'],
+  \ 'javascript': ['typescript-language-server', '--stdio'],
   \ 'go': ['go-langserver', '-format-tool','gofmt','-lint-tool','golint'],
   \}
 call deoplete#custom#var('omni', 'input_patterns', {
