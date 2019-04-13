@@ -39,9 +39,4 @@ let g:syntastic_mode_map = {
  \ "active_filetypes" : ["go"],
  \}
 let g:syntastic_go_checkers = ['golint', 'govet']
-let g:go_fmt_autosave = 1
 let g:syntastic_aggregate_errors = 1
-augroup GoSaveHook
-  autocmd!
-  autocmd BufWritePre *.go GoImports
-augroup END

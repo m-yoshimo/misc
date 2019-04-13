@@ -5,7 +5,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 "- window 操作 ----------
 nnoremap s <Nop>
 ""-- 水平分割
-nnoremap sn :<C-u>sp<CR>
+nnoremap sm :<C-u>sp<CR>
 ""-- 垂直分割
 nnoremap sv :<C-u>vs<CR>
 ""-- ウインドウ移動
