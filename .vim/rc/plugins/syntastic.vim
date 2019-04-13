@@ -43,7 +43,7 @@ let g:syntastic_mode_map = {
  \ "mode" : "active",
  \ "active_filetypes" : ["go"],
  \}
-let g:syntastic_go_checkers = ['go', 'golint', 'govet']
+let g:syntastic_go_checkers = ['golint', 'govet']
 let g:go_fmt_autosave = 1
 let g:syntastic_aggregate_errors = 1
 augroup GoSaveHook

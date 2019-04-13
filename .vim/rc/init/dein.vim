@@ -22,6 +22,8 @@ if dein#load_state('/home/m-yoshimo/.vim/dein')
   endif
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+  ""---- LSP
+  call dein#add('autozimu/LanguageClient-neovim', {'rev': 'next', 'build': 'bash install.sh'})
   "--- フォルダツリー
   call dein#add('scrooloose/nerdtree')
   "--- 検索
@@ -43,7 +45,7 @@ if dein#load_state('/home/m-yoshimo/.vim/dein')
   "--- カラースキーマ
   call dein#add('jacoborus/tender.vim')
   "--- javascript
-  call dein#add('ternjs/tern_for_vim')
+  "call dein#add('ternjs/tern_for_vim')
 
   " Required:
   call dein#end()
