@@ -2,8 +2,11 @@
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*
-let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|.rvm$|.bundle$\|vendor'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*/node_modules/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir'  : '\.git$\|\.hg$\|\.svn$\|\.rvm$\|\.bundle$\|\.circleci$\|\..*-ci-reports$\|\.vscode$\|vendor$\|node_modules$\|companies$\|files$\|tmp$\|spec$\|test$',
+  \ 'file' : '\.so$\|\.swp$\|\.zip$\|\.jpg$\|\.png$'
+  \}
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window='bottom'
 let g:ctrlp_max_height=10
