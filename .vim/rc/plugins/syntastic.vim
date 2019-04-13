@@ -28,11 +28,6 @@ let g:lightline = {
       \   'syntastic': 'error',
       \ }
       \ }
-let g:syntastic_mode_map = { 'mode': 'passive' }
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
 function! s:syntastic()
   SyntasticCheck
   call lightline#update()

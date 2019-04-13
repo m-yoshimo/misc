@@ -33,12 +33,31 @@ nnoremap s- <C-w>-
 ""---- expandtab 設定の on/off (default on)
 nnoremap <C-e> :set expandtab!<CR>
 ""---- ペーストモード切替
-nnoremap <C-o> :set paste!<CR>
-""---- crash 対応
-map <C-s> <Nop>
+nnoremap <C-p> :set paste!<CR>
 
 "--- プラグインの keymapping
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-nnoremap <silent><C-l> :TagbarToggle<CR>
+nnoremap <silent><C-m> :TagbarToggle<CR>
 " Tagbar 非表示時に Enter 押すと Tagbar 表示に hook されるので無効にする
 nnoremap <ENTER> j
+
+""---- deoplete/neosnippet
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+""---- CtrlP
+let g:ctrlp_map = '<C-s>'  "<C-p> は paste モード切替で頻繁に使うので <C-s> をアサイン
+let g:ctrlp_cmd = 'CtrlP'
+
+""---- tagbar keymapping
+let g:tagbar_map_togglesort = "r"
+let g:tagbar_map_togglefold = ";"
+

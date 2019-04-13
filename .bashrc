@@ -137,6 +137,9 @@ if [ -f "$HOME/.dircolors" ] ; then
     eval $(dircolors -b $HOME/.dircolors)
 fi
 
+# disable C-s
+stty stop undef
+
 # git
 export GIT_EDITOR=vim
 
