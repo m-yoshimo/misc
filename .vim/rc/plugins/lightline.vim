@@ -2,6 +2,17 @@
 " カラースキーマ
 let g:lightline = {
   \ 'colorscheme': 'wombat',
+  \ 'component_function': {
+    \   'syntastic': 'SyntasticStatuslineFlag'
+    \ },
+  \ 'active': {
+    \   'right': [ [ 'syntastic', 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+  \ 'component_type': {
+    \   'syntastic': 'error'
+    \ },
   \ }
 " ステータスラインを常に表示
 set laststatus=2
