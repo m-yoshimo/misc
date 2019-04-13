@@ -9,14 +9,33 @@ let g:tagbar_left = 0
 let g:tagbar_map_togglesort = "r"
 let g:tagbar_map_togglefold = "l"
 let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_sort=0
+let g:tagbar_type_ruby = {
+  \ 'ctagstype': 'ruby',
+  \ 'deffile': '/home/m-yoshimo/.ctags.d/rails.ctags',
+  \ 'kinds': [
+    \ 'm:modules',
+    \ 'c:classes',
+    \ 'C:constants:1',
+    \ 'V:varidates:1',
+    \ 'A:associations:1',
+    \ 'B:callbacks:1',
+    \ 'd:describes',
+    \ 'f:methods',
+    \ 'S:singleton methods'
+  \],
+  \ 'kind2scope' : {
+    \ 'f': 'methods'
+  \},
+\}
 let g:tagbar_type_go = {
   \ 'ctagstype': 'go',
   \ 'kinds' : [
-    \'p:package',
-    \'f:function',
-    \'v:variables',
-    \'t:type',
-    \'c:const'
+    \' p:package',
+    \' f:function',
+    \' v:variables',
+    \' t:type',
+    \' c:const'
   \]
 \}
 let js_ctags_exuberant = {

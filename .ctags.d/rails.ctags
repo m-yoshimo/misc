@@ -1,0 +1,11 @@
+--langmap=ruby:.rb
+--regex-ruby=/^[ \t]*scope[ \t]*:\([A-Za-z0-9_$]\{1,\}\)/\1/S/b
+--regex-ruby=/^[ \t]*validate[ s][ \t]*:\([A-Za-z0-9_$]\{1,\}\)/\1/V,validates/b
+--regex-ruby=/^[ \t]*\([A-Z_]\{1,\}\)[ \t]*=/\1/C,constants/b
+--regex-ruby=/^[ \t]*\(belongs_to\{1,\}\)[ \t]*\([:A-Za-z0-9_$]\{1,\}\)/\1 \2/A,associations/b
+--regex-ruby=/^[ \t]*\(has_many\{1,\}\)[ \t]*\([:A-Za-z0-9_$]\{1,\}\)/\1 \2/A,associations/b
+--regex-ruby=/^[ \t]*\(has_one\{1,\}\)[ \t]*\([:A-Za-z0-9_$]\{1,\}\)/\1 \2/A,associations/b
+--regex-ruby=/^[ \t]*\(delegate\{1,\}\)[ \t]*\([:A-Za-z0-9_$]\{1,\}\)/\1 \2/A,associations/b
+--regex-ruby=/^[ \t]*\(before_[A-Za-z_]\{1,\}\)[ \t]*\([:A-Za-z0-9_$]\{1,\}\)/\1 \2/B,callbacks/b
+--regex-ruby=/^[ \t]*\(after_[A-Za-z_]\{1,\}\)[ \t]*\([:A-Za-z0-9_$]\{1,\}\)/\1 \2/B,callbacks/b
+
