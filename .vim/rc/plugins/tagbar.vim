@@ -26,16 +26,6 @@ let g:tagbar_type_ruby = {
     \ 'f': 'methods'
   \},
 \}
-let g:tagbar_type_go = {
-  \ 'ctagstype': 'go',
-  \ 'kinds' : [
-    \' p:package',
-    \' f:function',
-    \' v:variables',
-    \' t:type',
-    \' c:const'
-  \]
-\}
 let js_ctags_exuberant = {
   \ 'ctagstype': 'javascript',
   \ 'ctagsbin' : 'ctags-exuberant',
