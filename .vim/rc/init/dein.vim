@@ -37,7 +37,9 @@ if dein#load_state('/home/m-yoshimo/.vim/dein')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('Yggdroot/indentLine')
   "--- Syntax / Lint
-  call dein#add('scrooloose/syntastic')
+  "call dein#add('scrooloose/syntastic')
+  call dein#add('w0rp/ale')
+  call dein#add('maximbaz/lightline-ale')
   call dein#add('fatih/vim-go')
   "--- 自動挿入
   call dein#add('tpope/vim-endwise')

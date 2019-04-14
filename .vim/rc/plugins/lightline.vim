@@ -2,16 +2,30 @@
 " カラースキーマ
 let g:lightline = {
   \ 'colorscheme': 'wombat',
-  \ 'component_function': {
-    \   'syntastic': 'SyntasticStatuslineFlag'
-    \ },
   \ 'active': {
-    \   'right': [ [ 'syntastic', 'lineinfo' ],
-    \              [ 'percent' ],
-    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ 'left' : [
+      \ [ 'mode', 'paste' ],
+      \ [ 'fugitive', 'filename' ]
+      \ ],
+    \ 'right': [
+      \ [ 'lineinfo' ],
+      \ [ 'fileformat', 'fileencoding', 'filetype' ],
+      \ [ 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_ok' ],
+      \ ],
+    \ },
+  \ 'component_expand': {
+      \ 'linter_checking': 'lightline#ale#checking',
+      \ 'linter_warnings': 'lightline#ale#warnings',
+      \ 'linter_errors': 'lightline#ale#errors',
+      \ 'linter_ok': 'lightline#ale#ok',
     \ },
   \ 'component_type': {
-    \   'syntastic': 'error'
+      \ 'linter_checking': 'left',
+      \ 'linter_warnings': 'warning',
+      \ 'linter_errors': 'error',
+      \ 'linter_ok': 'left',
+    \ },
+  \ 'component_function': {
     \ },
   \ }
 " ステータスラインを常に表示
