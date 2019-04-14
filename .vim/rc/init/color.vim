@@ -47,6 +47,9 @@ hi SpellCap term=reverse ctermfg=19 ctermbg=231
 ""hi VertSplit ctermfg=black ctermbg=darkred term=reverse cterm=reverse
 hi Title ctermfg=33
 hi NERDTreeExecFile ctermfg=251
+hi def link ALEErrorSign Search
+hi def link ALEWarningSign Search
+hi def link ALEInfoSign Search
 ""hi Visual term=reverse cterm=reverse ctermfg=darkcyan ctermbg=black
 ""hi VisualNOS term=bold,underline ctermfg=darkcyan ctermbg=black
 ""hi WarningMsg term=bold ctermfg=darkmagenta
