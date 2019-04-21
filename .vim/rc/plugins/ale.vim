@@ -1,5 +1,5 @@
 let g:ale_linters = {
-  \ 'javascript': ['jshint'],
+  \ 'javascript': ['eslint'],
   \ 'go': ['gometalinter'],
   \ 'ruby': ['ruby'],
   \ }
@@ -18,4 +18,5 @@ augroup CloseLoclistWindowGroup
   autocmd!
   autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
+let g:ale_javascript_eslint_options = ''
 let g:ale_go_gometalinter_options = '--fast --enable=staticcheck --enable=gosimple --enable=unused'
