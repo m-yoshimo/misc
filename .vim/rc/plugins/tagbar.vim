@@ -3,6 +3,7 @@ let g:tagbar_width = 30
 let g:tagbar_autoshowtag = 1
 let g:tagbar_autofocus = 0
 let g:tagbar_autoclose = 0
+let g:tagbar_silent = 0
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
 let g:tagbar_left = 0

@@ -18,7 +18,8 @@
 "   <C-p> : ペーストモード切替
 "   <Esc><Esc> : ハイライトのキャンセル
 "   <C-n> : フォルダツリー表示・非表示切替
-"   <C-m> : 関数一覧表示・非表示切替
+"   <C-l> : 関数一覧表示・非表示切替
+"   <C-h> : 現在の関数をハイライトする
 "
 " 検索
 "   <C-s> : ファイル検索
@@ -74,24 +75,34 @@ nnoremap <C-p> :set paste!<CR>
 
 "--- プラグインの keymapping
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-nnoremap <silent><C-m> :TagbarToggle<CR>
+nnoremap <silent><C-l> :TagbarToggle<CR>
 " Tagbar 非表示時に Enter 押すと Tagbar 表示に hook されるので無効にする
 nnoremap <ENTER> j
 
 ""---- deoplete/neosnippet
-imap <expr><Down>
-  \ pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<Down>"
+"imap <expr><TAB>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-imap <expr><Up>
-  \ pumvisible() ? "\<C-p>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<Up>"
+"imap <expr><S-TAB>
+"  \ pumvisible() ? "\<C-p>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \  "\<Plug>(neosnippet_expand_or_jump)" : "\<S-TAB>"
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+"imap <expr><Down>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<Down>"
+
+"imap <expr><Up>
+"  \ pumvisible() ? "\<C-p>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<Up>"
+
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 ""---- CtrlP
 let g:ctrlp_map = '<C-s>'  "<C-p> は paste モード切替で頻繁に使うので <C-s> をアサイン
@@ -100,7 +111,7 @@ let g:ctrlp_cmd = 'CtrlP'
 ""---- Tagbar
 let g:tagbar_map_togglesort = "r"
 let g:tagbar_map_togglefold = ";"
-
+nnoremap <C-h> :TagbarHighlight<CR>
 ""---- ALE
-nnoremap <silent> <C-Up> <Plug>(ale_previous_wrap)
-nnoremap <silent> <C-Down> <Plug>(ale_next_wrap)
+nmap <silent> <C-Up> <Plug>(ale_previous_wrap)
+nmap <silent> <C-Down> <Plug>(ale_next_wrap)

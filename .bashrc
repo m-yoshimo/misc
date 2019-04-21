@@ -170,4 +170,9 @@ export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 # docker for windows
 export DOCKER_HOST='tcp://0.0.0.0:2375'
 
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 source ~/.bashrc_private

@@ -13,6 +13,7 @@ set nosmartindent
 set virtualedit=onemore
 set showmatch
 set wildmode=list:longest
+set list listchars=tab:\¦_
 syntax enable
 
 " tab/space

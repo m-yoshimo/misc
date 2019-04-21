@@ -1,5 +1,4 @@
 "--- lightline --------------------
-" カラースキーマ
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ 'active': {
