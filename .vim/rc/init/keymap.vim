@@ -1,7 +1,7 @@
 "--- Key Mapping Description ----------------
 " Window 操作
-"   sm : 水平分割
-"   sv : 垂直分割
+"   sv : 水平分割
+"   sm : 垂直分割
 "   ss : 次に移動
 "   si : 上に移動
 "   sn : 下に移動
@@ -43,9 +43,9 @@ nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 "- window 操作 ----------
 nnoremap s <Nop>
 ""-- 水平分割
-nnoremap sm :<C-u>sp<CR>
+nnoremap sv :<C-u>sp<CR>
 ""-- 垂直分割
-nnoremap sv :<C-u>vs<CR>
+nnoremap sm :<C-u>vs<CR>
 ""-- ウインドウ移動
 """--- 下に移動
 nnoremap sn <C-w>j
@@ -65,8 +65,6 @@ nnoremap s. <C-w><
 nnoremap s; <C-w>+
 nnoremap s- <C-w>-
 
-"--- オートコンプリート ---
-
 "--- その他 ---------------
 ""---- expandtab 設定の on/off (default on)
 nnoremap <C-e> :set expandtab!<CR>
@@ -79,7 +77,28 @@ nnoremap <silent><C-l> :TagbarToggle<CR>
 " Tagbar 非表示時に Enter 押すと Tagbar 表示に hook されるので無効にする
 nnoremap <ENTER> j
 
+""---- CtrlP
+let g:ctrlp_map = '<C-s>'  "<C-p> は paste モード切替で頻繁に使うので <C-s> をアサイン
+let g:ctrlp_cmd = 'CtrlP'
+
+""---- Tagbar
+let g:tagbar_map_togglesort = "r"
+let g:tagbar_map_togglefold = ";"
+nnoremap <C-h> :TagbarHighlight<CR>
+
+""---- ALE
+nmap <silent> <C-Up> <Plug>(ale_previous_wrap)
+nmap <silent> <C-Down> <Plug>(ale_next_wrap)
+
+""---- vim-lsp/asyncomplete
+inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><CR>    pumvisible() ? "\<C-y>" : "<CR>"
+inoremap <expr><Down>  pumvisible() ? asyncomplete#cancel_popup()."\<Down>" : "\<Down>"
+inoremap <expr><Up>    pumvisible() ? asyncomplete#cancel_popup()."\<Up>" : "\<Up>"
+
 ""---- deoplete/neosnippet
+"inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 "imap <expr><TAB>
 "  \ pumvisible() ? "\<C-n>" :
 "  \ neosnippet#expandable_or_jumpable() ?
@@ -104,14 +123,4 @@ nnoremap <ENTER> j
 "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 "xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-""---- CtrlP
-let g:ctrlp_map = '<C-s>'  "<C-p> は paste モード切替で頻繁に使うので <C-s> をアサイン
-let g:ctrlp_cmd = 'CtrlP'
 
-""---- Tagbar
-let g:tagbar_map_togglesort = "r"
-let g:tagbar_map_togglefold = ";"
-nnoremap <C-h> :TagbarHighlight<CR>
-""---- ALE
-nmap <silent> <C-Up> <Plug>(ale_previous_wrap)
-nmap <silent> <C-Down> <Plug>(ale_next_wrap)

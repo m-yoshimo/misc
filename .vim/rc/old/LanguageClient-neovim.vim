@@ -1,4 +1,10 @@
 "--- LanguageClient-neovim --------
+let g:LanguageClient_serverCommands = {
+  \ 'ruby': ['solargraph', 'stdio'],
+  \ 'javascript': ['typescript-language-server', '--stdio'],
+  \ 'go': ['go-langserver', '-format-tool','gofmt','-lint-tool','golint'],
+  \}
+
 let g:LanguageClient_diagnosticsDisplay = {
   \ 1: {
     \ "name": "Error",
