@@ -133,8 +133,8 @@ export XMODIFIRES=@im=uim
 export PS1="[\[\e[38;05;45m\\]\u\[\e[0m\]@\[\e[38;05;9m\]\h\[\e[0m\]:\[\e[38;05;46m\]\w\[\e[0m\]]\n\\$ "
 
 # dircolor edit
-if [ -f "$HOME/.dircolors" ] ; then
-    eval $(dircolors -b $HOME/.dircolors)
+if [ -f "${HOME}/.dircolors" ] ; then
+    eval $(dircolors -b ${HOME}/.dircolors)
 fi
 
 # disable C-s
@@ -147,26 +147,30 @@ export GIT_EDITOR=vim
 if [ ! -f /var/run/utmp ] ; then
   sudo touch /var/run/utmp
 fi
-export SCREENDIR=$HOME/.screen
+export SCREENDIR=${HOME}/.screen
 
 # path for lib on bionic
 export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
 
+# anyenv
+export PATH=${HOME}/.anyenv/bin:${PATH}
+eval "$(anyenv init - --no-rehash)"
+
 # ruby
-export PATH=${HOME}/.rbenv/bin:${PATH}
-eval "$(rbenv init -)"
+#export PATH=${HOME}/.rbenv/bin:${PATH}
+#eval "$(rbenv init -)"
 
 # go
-export GOPATH=${HOME}/dev/go
+export GOPATH=${HOME}/go
 export PATH=${GOPATH}/bin:${PATH}
 
 # node
 export PATH=${HOME}/node_modules/.bin:${PATH}
 
 # python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#export PYENV_ROOT=${HOME}/.pyenv
+#export PATH=${PYENV_ROOT}/bin:${PATH}
+#eval "$(pyenv init -)"
 
 # gcloud
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
