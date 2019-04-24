@@ -35,7 +35,44 @@ jobs:
           name: Run lint
           command: yarn run lint
 workflows:
-  work:
+  version: 2
+  pull_request:
+    jobs:
+      - setup:
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+      - check:
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+          requires:
+            - setup
+  nightly_develop:
+    triggers:
+      - schedule:
+          cron: 00 20 * * *
+          filters:
+            branches:
+              only:
+                - develop
+    jobs:
+      - setup
+      - check:
+          requires:
+            - setup
+  nightly_master:
+    triggers:
+      - schedule:
+          cron: 00 20 * * *
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - setup
       - check:
