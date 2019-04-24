@@ -1,4 +1,5 @@
 defscrollback 10000
+deflogin off
 
 defutf8 on
 defencoding utf8
@@ -12,8 +13,8 @@ altscreen on
 escape ^Jj
 
 # s と v を良く間違えるので入れ替える
-bind v eval "split -v" focus select
-bind s eval split focus select
+bind s eval "split -v" focus select
+bind v eval split focus select
 bind + eval 'command -c resize'
 bind - eval 'command -c resize'
 bind -c resize + eval 'resize +1' 'command -c resize'

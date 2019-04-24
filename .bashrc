@@ -149,19 +149,24 @@ if [ ! -f /var/run/utmp ] ; then
 fi
 export SCREENDIR=$HOME/.screen
 
-# rbenv
-export PATH=${HOME}/.rbenv/bin:${PATH}
-eval "$(rbenv init -)"
-
 # path for lib on bionic
 export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
 
-# golang
+# ruby
+export PATH=${HOME}/.rbenv/bin:${PATH}
+eval "$(rbenv init -)"
+
+# go
 export GOPATH=${HOME}/dev/go
 export PATH=${GOPATH}/bin:${PATH}
 
 # node
 export PATH=${HOME}/node_modules/.bin:${PATH}
+
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # gcloud
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
@@ -169,10 +174,5 @@ export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
 # docker for windows
 export DOCKER_HOST='tcp://0.0.0.0:2375'
-
-# python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 source ~/.bashrc_private
