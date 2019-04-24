@@ -1,7 +1,6 @@
 "------- vim-lsp ---------
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_highlight_references_enabled = 0
-set completeopt=menuone
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "" ruby
@@ -47,3 +46,10 @@ if executable('pyls')
     \ 'whitelist': ['python'],
     \ })
 endif
+
+""---- vim-lsp/asyncomplete
+inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><CR>    pumvisible() ? "\<C-y><CR>" : "<CR>"
+inoremap <expr><Down>  pumvisible() ? asyncomplete#cancel_popup()."\<Down>" : "\<Down>"
+inoremap <expr><Up>    pumvisible() ? asyncomplete#cancel_popup()."\<Up>" : "\<Up>"

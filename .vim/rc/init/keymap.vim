@@ -15,14 +15,14 @@
 "
 " 設定・表示切り替え
 "   <C-e> : タブ入力時の space/tab 切替 (デフォルト space)
-"   <C-p> : ペーストモード切替
+"   <C-i> : ペーストモード切替
 "   <Esc><Esc> : ハイライトのキャンセル
 "   <C-n> : フォルダツリー表示・非表示切替
 "   <C-l> : 関数一覧表示・非表示切替
 "   <C-h> : 現在の関数をハイライトする
 "
 " 検索
-"   <C-s> : ファイル検索
+"   <C-p> : ファイル検索
 "
 " ジャンプ
 "   <C-Up>   : 前の Lint Error/Warning
@@ -69,7 +69,7 @@ nnoremap s- <C-w>-
 ""---- expandtab 設定の on/off (default on)
 nnoremap <C-e> :set expandtab!<CR>
 ""---- ペーストモード切替
-nnoremap <C-p> :set paste!<CR>
+nnoremap <C-i> :set paste!<CR>
 
 "--- プラグインの keymapping
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
@@ -78,7 +78,7 @@ nnoremap <silent><C-l> :TagbarToggle<CR>
 nnoremap <ENTER> j
 
 ""---- CtrlP
-let g:ctrlp_map = '<C-s>'  "<C-p> は paste モード切替で頻繁に使うので <C-s> をアサイン
+let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 ""---- Tagbar
@@ -89,13 +89,6 @@ nnoremap <C-h> :TagbarHighlight<CR>
 ""---- ALE
 nmap <silent> <C-Up> <Plug>(ale_previous_wrap)
 nmap <silent> <C-Down> <Plug>(ale_next_wrap)
-
-""---- vim-lsp/asyncomplete
-inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr><CR>    pumvisible() ? "\<C-y>" : "<CR>"
-inoremap <expr><Down>  pumvisible() ? asyncomplete#cancel_popup()."\<Down>" : "\<Down>"
-inoremap <expr><Up>    pumvisible() ? asyncomplete#cancel_popup()."\<Up>" : "\<Up>"
 
 ""---- deoplete/neosnippet
 "inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
