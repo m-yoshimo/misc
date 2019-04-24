@@ -1,0 +1,91 @@
+AllCops:
+  Rails:
+    Enabled: true
+  DisplayCopNames: true
+  Exclude:
+    - db/schema.rb
+#    - db/seeds.rb
+    - db/migrate/**/*
+    - vendor/**/*
+    - config/environments/**/*
+    - config/initializers/**/*
+#    - config/application.rb
+    - spec/*
+#    - spec/spec_helper.rb
+#    - spec/rails_helper.rb
+    - bin/*
+
+Style/Lambda:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/FormatString:
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+  Enabled: false
+
+Style/AlignParameters:
+  Enabled: false
+
+Style/TrailingWhitespace:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/StabbyLambdaParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 200
+
+Style/AlignArray:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/LineLength:
+  Max: 80
+
+Metrics/AbcSize:
+  Max: 30
