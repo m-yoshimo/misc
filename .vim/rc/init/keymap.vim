@@ -116,4 +116,3 @@ nmap <silent> <C-Down> <Plug>(ale_next_wrap)
 "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 "xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-

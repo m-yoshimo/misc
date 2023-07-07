@@ -108,6 +108,9 @@ fi
 # alias
 alias scrr='screen -t'
 
+# git
+source ~/.git-prompt.sh
+
 # locale
 export LC_MESSAGES=ja_JP.UTF-8
 export LC_IDENTIFICATION=ja_JP.UTF-8
@@ -130,7 +133,8 @@ export NO_AT_BRIDGE=1
 export XMODIFIRES=@im=uim
 
 # prompt color
-export PS1="[\[\e[38;05;45m\\]\u\[\e[0m\]@\[\e[38;05;9m\]\h\[\e[0m\]:\[\e[38;05;46m\]\w\[\e[0m\]]\n\\$ "
+#export PS1="[\[\e[38;05;45m\\]\u\[\e[0m\]@\[\e[38;05;9m\]\h\[\e[0m\]:\[\e[38;05;46m\]\w\[\e[0m\]]\n\\$ "
+export PS1='[\[\e[38;05;12m\]\u\[\e[0m\]@\[\e[38;05;41m\]\w\[\e[0m\]] \[\e[38;05;203m\]$(__git_ps1 "(%s)")\[\e[0m\]\n\\$ '
 
 # dircolor edit
 if [ -f "${HOME}/.dircolors" ] ; then
@@ -154,7 +158,7 @@ export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
 
 # anyenv
 export PATH=${HOME}/.anyenv/bin:${PATH}
-eval "$(anyenv init - --no-rehash)"
+#eval "$(anyenv init - --no-rehash)"
 
 # ruby
 #export PATH=${HOME}/.rbenv/bin:${PATH}
@@ -163,20 +167,18 @@ eval "$(anyenv init - --no-rehash)"
 # go
 export GOPATH=${HOME}/go
 export PATH=${GOPATH}/bin:${PATH}
-
-# node
-export PATH=${HOME}/node_modules/.bin:${PATH}
+eval "$(goenv init -)"
 
 # python
 #export PYENV_ROOT=${HOME}/.pyenv
 #export PATH=${PYENV_ROOT}/bin:${PATH}
 #eval "$(pyenv init -)"
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # gcloud
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 #export GOOGLE_PROJECT_ID="$(gcloud config get-value project -q)"  # 読み込み長いのでコメントアウト
 
-# docker for windows
-export DOCKER_HOST='tcp://0.0.0.0:2375'
-
-source ~/.bashrc_private
+source ${HOME}/.bashrc_genda
