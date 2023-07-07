@@ -121,17 +121,6 @@ export LC_CTYPE=ja_JP.UTF-8
 export LC_TIME=ja_JP.UTF-8
 export LC_NAME=ja_JP.UTF-8
 
-# wsl-terminal for WSL
-export DISPLAY=localhost:0.0
-export XIM=uim
-export XMODIFIERS=@im=uim
-export UIM_CANDWIN_PROG=uim-candwin-gtk
-#export UIM_CANDWIN_PROG=uim-candwin-qt
-export GTK_IM_MODULE=uim
-export QT_IM_MODULE=uim
-export NO_AT_BRIDGE=1
-export XMODIFIRES=@im=uim
-
 # prompt color
 #export PS1="[\[\e[38;05;45m\\]\u\[\e[0m\]@\[\e[38;05;9m\]\h\[\e[0m\]:\[\e[38;05;46m\]\w\[\e[0m\]]\n\\$ "
 export PS1='[\[\e[38;05;12m\]\u\[\e[0m\]@\[\e[38;05;41m\]\w\[\e[0m\]] \[\e[38;05;203m\]$(__git_ps1 "(%s)")\[\e[0m\]\n\\$ '
@@ -158,7 +147,6 @@ export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
 
 # anyenv
 export PATH=${HOME}/.anyenv/bin:${PATH}
-#eval "$(anyenv init - --no-rehash)"
 
 # ruby
 #export PATH=${HOME}/.rbenv/bin:${PATH}
