@@ -1,0 +1,73 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(laws exec *)",
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git branch*)",
+      "Bash(git show*)",
+      "Bash(git stash list*)",
+      "Bash(jq *)",
+      "Bash(echo *)",
+      "Bash(which *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(sort *)",
+      "Bash(uniq *)",
+      "Bash(cut *)",
+      "Bash(awk *)",
+      "Bash(sed *)",
+      "Bash(tr *)",
+      "Bash(terraform plan*)",
+      "Bash(terraform show*)",
+      "Bash(terraform validate*)",
+      "Bash(terraform output*)",
+      "Bash(terraform state list*)",
+      "Bash(terraform state show*)",
+      "Bash(go build*)",
+      "Bash(go vet*)",
+      "Bash(go test*)",
+      "Bash(gofumpt *)",
+      "Bash(golangci-lint *)",
+      "Bash(pwd)",
+      "Bash(diff *)",
+      "Bash(stat *)"
+    ],
+    "additionalDirectories": [
+      "/home/m-yoshimo/work/genda/repositories/u1-api/.claude/tasks",
+      "/home/m-yoshimo/work/genda/repositories/u1-web/.claude/tasks",
+      "/home/m-yoshimo/.claude/memory"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "feedback_content=$(cat \"$HOME/.claude/memory/feedback_\"*.md 2>/dev/null); if [ -n \"$feedback_content\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"UserPromptSubmit\\\", \\\"additionalContext\\\": $(printf '=== フィードバック（必ず守ること・毎回読むこと） ===\\n%s' \"$feedback_content\" | jq -Rs .)}}\"; fi"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "gopls@claude-code-lsps": true,
+    "vtsls@claude-code-lsps": true,
+    "gopls-lsp@claude-plugins-official": false
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-lsps": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/boostvolt/claude-code-lsps.git"
+      }
+    }
+  }
+}

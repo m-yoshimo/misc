@@ -203,6 +203,7 @@
   "workbench.colorTheme": "Visual Studio Dark",
   "vitest.nodeExecutable": "/home/m-yoshimo/.anyenv/envs/nodenv/versions/20.10.0/bin/node",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "remote.autoForwardPortsSource": "hybrid",
   "markdown-preview-enhanced.enablePreviewZenMode": true,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
