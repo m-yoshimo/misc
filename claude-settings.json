@@ -37,7 +37,8 @@
       "Bash(golangci-lint *)",
       "Bash(pwd)",
       "Bash(diff *)",
-      "Bash(stat *)"
+      "Bash(stat *)",
+      "Read(//home/m-yoshimo/work/genda/repositories/pointpf-api/**)"
     ],
     "additionalDirectories": [
       "/home/m-yoshimo/work/genda/repositories/u1-api/.claude/tasks",
@@ -51,7 +52,44 @@
         "hooks": [
           {
             "type": "command",
-            "command": "feedback_content=$(cat \"$HOME/.claude/memory/feedback_\"*.md 2>/dev/null); if [ -n \"$feedback_content\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"UserPromptSubmit\\\", \\\"additionalContext\\\": $(printf '=== フィードバック（必ず守ること・毎回読むこと） ===\\n%s' \"$feedback_content\" | jq -Rs .)}}\"; fi"
+            "command": "now=$(TZ='Asia/Tokyo' date '+%Y-%m-%d %H:%M:%S %Z'); printf '【現在時刻 JST: %s】回答の冒頭に必ずこの時刻を表示すること。' \"$now\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"UserPromptSubmit\",additionalContext:.}}'"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '⚠️最優先事項（Tier 0 を毎回照合。作業全体の承認を得るまで着手しない）:\\n%s' \"$(cat \"$HOME/.claude/memory/MEMORY.md\" 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"UserPromptSubmit\",additionalContext:.}}'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/taskdef_review_prompt.py\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '⚠️セッション開始：全メモリ・フィードバックを読み込む(1/3 メモリ本体)。作業全体の承認を得るまで着手しない。\\n%s' \"$(cat \"$HOME/.claude/memory/MEMORY.md\" 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
+          },
+          {
+            "type": "command",
+            "command": "list=$(ls \"$HOME\"/.claude/memory/feedback_*.md 2>/dev/null); n=$(printf '%s\\n' \"$list\" | grep -c .); h=$(( (n+1)/2 )); printf '=== フィードバック全文 (2/3) ===\\n%s' \"$(printf '%s\\n' \"$list\" | head -n \"$h\" | xargs cat 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
+          },
+          {
+            "type": "command",
+            "command": "list=$(ls \"$HOME\"/.claude/memory/feedback_*.md 2>/dev/null); n=$(printf '%s\\n' \"$list\" | grep -c .); h=$(( (n+1)/2 )); printf '=== フィードバック全文 (3/3) ===\\n%s' \"$(printf '%s\\n' \"$list\" | tail -n +$((h+1)) | xargs cat 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
           }
         ]
       }

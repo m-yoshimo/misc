@@ -147,6 +147,7 @@ export PATH=/usr/lib/x86_64-linux-gnu:${PATH}
 
 # anyenv
 export PATH=${HOME}/.anyenv/bin:${PATH}
+eval "$(anyenv init -)"
 
 # ruby
 #export PATH=${HOME}/.rbenv/bin:${PATH}
