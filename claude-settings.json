@@ -12,6 +12,8 @@
       "Bash(git branch*)",
       "Bash(git show*)",
       "Bash(git stash list*)",
+      "Bash(git fetch)",
+      "Bash(git fetch --all)",
       "Bash(jq *)",
       "Bash(echo *)",
       "Bash(which *)",
@@ -38,7 +40,10 @@
       "Bash(pwd)",
       "Bash(diff *)",
       "Bash(stat *)",
-      "Read(//home/m-yoshimo/work/genda/repositories/pointpf-api/**)"
+      "Bash(rm -rf .claude/tmp/*)",
+      "Bash(rm -r .claude/tmp/*)",
+      "Bash(rm .claude/tmp/*)",
+      "Bash(rmdir .claude/tmp/*)"
     ],
     "additionalDirectories": [
       "/home/m-yoshimo/work/genda/repositories/u1-api/.claude/tasks",
@@ -63,6 +68,34 @@
             "command": "printf '⚠️最優先事項（Tier 0 を毎回照合。作業全体の承認を得るまで着手しない）:\\n%s' \"$(cat \"$HOME/.claude/memory/MEMORY.md\" 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"UserPromptSubmit\",additionalContext:.}}'"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/rm_grant.py\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|MultiEdit|NotebookEdit|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/rule_guard.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/delegate_guard.py\""
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -72,6 +105,10 @@
           {
             "type": "command",
             "command": "python3 \"$HOME/.claude/hooks/taskdef_review_prompt.py\""
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/memory_lint.py\" --hook"
           }
         ]
       }
@@ -81,15 +118,97 @@
         "hooks": [
           {
             "type": "command",
-            "command": "printf '⚠️セッション開始：全メモリ・フィードバックを読み込む(1/3 メモリ本体)。作業全体の承認を得るまで着手しない。\\n%s' \"$(cat \"$HOME/.claude/memory/MEMORY.md\" 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
+            "command": "printf '⚠️セッション開始：メモリ本体（索引）。作業全体の承認を得るまで着手しない。\\n%s' \"$(cat \"$HOME/.claude/memory/MEMORY.md\" 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
           },
           {
             "type": "command",
-            "command": "list=$(ls \"$HOME\"/.claude/memory/feedback_*.md 2>/dev/null); n=$(printf '%s\\n' \"$list\" | grep -c .); h=$(( (n+1)/2 )); printf '=== フィードバック全文 (2/3) ===\\n%s' \"$(printf '%s\\n' \"$list\" | head -n \"$h\" | xargs cat 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 1 17"
           },
           {
             "type": "command",
-            "command": "list=$(ls \"$HOME\"/.claude/memory/feedback_*.md 2>/dev/null); n=$(printf '%s\\n' \"$list\" | grep -c .); h=$(( (n+1)/2 )); printf '=== フィードバック全文 (3/3) ===\\n%s' \"$(printf '%s\\n' \"$list\" | tail -n +$((h+1)) | xargs cat 2>/dev/null)\" | jq -Rs '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:.}}'"
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 2 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 3 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 4 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 5 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 6 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 7 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 8 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 9 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 10 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 11 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 12 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 13 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 14 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 15 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 16 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/session_rules.py\" 17 17"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/taskdef_status.py\" --session-start"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/delegate_guard.py\" --sweep"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/taskdef_status.py\" --stop"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/delegate_guard.py\" --stop"
           }
         ]
       }
@@ -106,6 +225,11 @@
         "source": "git",
         "url": "https://github.com/boostvolt/claude-code-lsps.git"
       }
+    }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
     }
   }
 }

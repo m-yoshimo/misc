@@ -48,11 +48,11 @@
           "punctuation.section.embedded.begin.php",
           "punctuation.section.embedded.end.php",
           "variable.language",
-          "constant.character"
+          "constant.character",
         ],
         "settings": {
-          "foreground": "#0c98f5"
-        }
+          "foreground": "#0c98f5",
+        },
       },
       {
         "scope": [
@@ -103,17 +103,17 @@
           "storage.type.primitive.groovy",
           "constant.sha.git-rebase",
           "keyword.other.unit",
-          "punctuation.definition.quote.begin.markdown"
+          "punctuation.definition.quote.begin.markdown",
         ],
         "settings": {
-          "foreground": "#0ccc9c"
-        }
+          "foreground": "#0ccc9c",
+        },
       },
       {
         "scope": "comment",
         "settings": {
-          "foreground": "#529e65"
-        }
+          "foreground": "#529e65",
+        },
       },
       {
         "scope": [
@@ -121,11 +121,11 @@
           "support.function",
           "support.constant.handlebars",
           "source.powershell variable.other.member",
-          "entity.name.operator.custom-literal"
+          "entity.name.operator.custom-literal",
         ],
         "settings": {
-          "foreground": "#f3eec5"
-        }
+          "foreground": "#f3eec5",
+        },
       },
       {
         "scope": [
@@ -142,11 +142,11 @@
           "constant.character.escape",
           "keyword.operator.or.regexp",
           "keyword.control.anchor.regexp",
-          "keyword.operator.quantifier.regexp"
+          "keyword.operator.quantifier.regexp",
         ],
         "settings": {
-          "foreground": "#f3d696"
-        }
+          "foreground": "#f3d696",
+        },
       },
       {
         "scope": [
@@ -164,41 +164,44 @@
           "meta.embedded.assembly",
           "string.tag",
           "string.value",
-          "string.regexp"
+          "string.regexp",
         ],
         "settings": {
-          "foreground": "#e45f5f"
-        }
-      }
-    ]
+          "foreground": "#e45f5f",
+        },
+      },
+    ],
   },
   "workbench.colorCustomizations": {
-    "editor.background": "#2e2e2e"
+    "editor.background": "#2e2e2e",
   },
   "go.toolsManagement.autoUpdate": true,
   "go.lintTool": "golangci-lint",
-  "go.lintFlags": ["--config=${workspaceFolder}/.golangci.yml", "--fast"],
+  "go.lintFlags": [
+    "--config=${workspaceFolder}/.golangci.yml",
+    "--fast"
+  ],
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
   },
   "npm.packageManager": "pnpm",
   "eslint.useFlatConfig": true,
   "ts.tsdk.path": "./node_modules/typescript/lib",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[markdown]": {
     "editor.wordWrap": "off",
     "files.trimTrailingWhitespace": false,
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "[json]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
   },
   "workbench.colorTheme": "Visual Studio Dark",
   "vitest.nodeExecutable": "/home/m-yoshimo/.anyenv/envs/nodenv/versions/20.10.0/bin/node",
@@ -210,10 +213,10 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.autoIndent": "advanced",
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "claudeCode.useCtrlEnterToSend": true,
   "json.schemaDownload.trustedDomains": {
@@ -224,7 +227,21 @@
     "https://json.schemastore.org/": true,
     "https://json-schema.org/": true,
     "https://developer.microsoft.com/json-schemas/": true,
-    "https://biomejs.dev": true
+    "https://biomejs.dev": true,
   },
   "claudeCode.preferredLocation": "panel",
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "errorLens.excludeBySource": [
+    "cSpell"
+  ],
+  "claudeCode.hideOnboarding": true,
+  "redhat.telemetry.enabled": false,
+  "update.mode": "none",
 }

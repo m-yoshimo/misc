@@ -2,8 +2,9 @@
 """PostToolUse hook: タスク定義書 (.claude/tasks/*.md) の Write/Edit を検知して2つを行う。
 
 1. フォーマットチェック: ~/.claude/tasks/_TEMPLATE.md の必須節が揃っているかを機械的に検査し、
-   欠落があれば具体的に指摘する。(feedback_task_workflow.md「タスク定義は必ず _TEMPLATE.md から
-   起こす（毎回抜ける最重要ミス）」への機械的な歯止め。人間の注意力に依存させない。)
+   欠落があれば具体的に指摘する。(FLOW-12「タスク定義は必ず _TEMPLATE.md から
+   起こす（毎回抜ける最重要ミス）」への機械的な歯止め。人間の注意力に依存させない。
+   **ルールはファイル名でなく ID で参照する** — memory/ のファイルは場面別に再編されうるため。)
 2. design-review を実行するか AskUserQuestion で確認するよう指示する。
 
 対象はタスク定義書のみ（コード実装は対象外）。
@@ -85,10 +86,11 @@ def main() -> None:
         "📋 タスク定義書を編集しました: " + file_path + "\n"
         "→ この更新に design-review（設計レビュー）が必要か、AskUserQuestion でユーザーに1問確認すること。"
         "（軽微・事務的な更新などレビュー不要なケースもあるため、毎回は実行しない＝オーバーヘッド回避。）\n"
-        "→ ユーザーが「実行する」を選んだら、design-review スキルでこの task-def を対象に、"
+        "→ ユーザーが「実行する」を選んだら、design-review-v2 スキルでこの task-def を対象に、"
         "別のレビューエージェントで設計レビューを回すこと。"
-        "**レビュー基準には `~/.claude/notes/design_review_rubric.md` と `design_philosophy.md` に加え、"
-        "着手プロジェクトの開発ガイドライン（u1-web なら `docs/dev-guidelines.md`）を必ず含めること。**\n"
+        "**レビュー基準は `~/.claude/notes/design-review-v2/`（原則5 + ルール75 / 8カテゴリ）。"
+        "v1 の `design_review_rubric.md` / `design_philosophy.md` は DEPRECATED なので使わない。"
+        "これに加えて、着手プロジェクトの開発ガイドライン（u1-web なら `docs/dev-guidelines.md`）を必ず含めること。**\n"
         "→ 返ってきた指摘は全件反映せず、(a)事実誤り=直す (b)要件内=直す (c)要件外・範囲外=ユーザーに諮る、"
         "の3分類で取捨選択すること（`feedback_task_workflow.md`「レビュー指摘の取捨選択はレビューを受けた側の責任」）。"
     )
